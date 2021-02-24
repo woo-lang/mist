@@ -5,9 +5,9 @@ import { red } from "chalk"
 // the command line argument parser
 
 export class ArgumentParser {
-    private readonly arguments:Array<string>
+    private readonly arguments: Array<string>
 
-    constructor(readonly parameters:Array<string>){
+    constructor(readonly parameters: Array<string>) {
         // slice the command line arguments
         // and remove ["node", "filename"] from
         // the array
@@ -17,16 +17,30 @@ export class ArgumentParser {
 
     }
 
+    /**
+     * Take all the keys from the WOOLANG_CLI_ARGUMENTS
+     * if no arguments are passed in along with node,
+     * simply print out the version of woolang interpreter
+     * 
+     * if it contains arguments, make sure it contains
+     * two arguments, and check for it in the 
+     * WOOLANG_CLI_ARGUMENTS, and execute the
+     * corresponding function ot throw out an error
+     * 
+     * else,throw an insufficient arguments
+     * error
+     */
+
     parseCommandArguments = () => {
         // let parseItemIndex = 0;
         const commandKeys = Object.keys(WOOLANG_CLI_ARGUMENTS)
-        
-        if (this.arguments.length == 0){
+
+        if (this.arguments.length == 0) {
             console.log(`Woolang ${WOOLANG_INTERPRETER_VERSION}`)
-        } else if(this.arguments.length == 2) {
+        } else if (this.arguments.length == 2) {
             const command = this.arguments[0]
 
-            if(commandKeys.includes(command)){
+            if (commandKeys.includes(command)) {
                 WOOLANG_CLI_ARGUMENTS[
                     command
                 ](this.arguments[1])
