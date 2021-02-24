@@ -25,6 +25,7 @@ SOFTWARE.
 from woolang.woolang import run
 import sys as sys
 
+
 def run_application(content):
     if content == None:
         sys.exit()

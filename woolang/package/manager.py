@@ -2,8 +2,10 @@ import os, json
 import requests as requests
 from clint.textui import colored as Color
 
+
 def error_logger(error):
     print(Color.red(error))
+
 
 def url_is_secure(data):
     """
@@ -18,8 +20,6 @@ class PackageManager():
     def __init__(self, search_for_packages):
         self.packages = self.get_all_packages(search_for_packages)
 
-
-
         PackageManager.install_packages(self.packages)
 
     def get_all_packages(self, package_dir):
@@ -28,8 +28,7 @@ class PackageManager():
         """
         if package_dir == ".":
             return self.read_all_packages(
-                os.path.join(os.getcwd(),
-                             f"woo.json"))
+                os.path.join(os.getcwd(), f"woo.json"))
         else:
             return [package_dir]
 

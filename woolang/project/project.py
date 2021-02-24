@@ -13,7 +13,6 @@ class Project():
     def __init__(self):
         self.project_information = self.get_project_info()
 
-
         self.directory = self.create_project_directory(
             self.project_information["project-name"])
         self.create_config_file()
@@ -71,7 +70,6 @@ class Project():
             project_info_solutions[parameter_query["value"].lower().replace(
                 " ", "-")] = str(prompt)
 
-
         return project_info_solutions
 
     def create_project_directory(self, project_name):
@@ -83,13 +81,15 @@ class Project():
         if os.path.exists(project_dir):
             if project_dir == os.getcwd():
                 if len(os.listdir(project_dir)) is not 0:
-                    exception = FileNotFoundException("Folder is not empty").evoke_exception_message()
+                    exception = FileNotFoundException(
+                        "Folder is not empty").evoke_exception_message()
                 return project_dir
             else:
-                exception = FileNotFoundException("File or Folder already exists").evoke_exception_message()
+                exception = FileNotFoundException(
+                    "File or Folder already exists").evoke_exception_message()
         else:
             os.mkdir(project_dir)
             self.project_information["entry-point"] = os.path.join(
-                project_dir, self.project_information["project-name"], "main.woo"
-            )
+                project_dir, self.project_information["project-name"],
+                "main.woo")
             return project_dir
