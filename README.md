@@ -1,5 +1,6 @@
-# woolang
+# Woolang
+> This language is not developed from scratch
+> It is developed from [davidcallanan/py-myopl-code](https://github.com/davidcallanan/py-myopl-code)
 
-A simple esoteric programming language
+A simple programming language
 
-> woolang is under development
