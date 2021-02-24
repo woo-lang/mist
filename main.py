@@ -1,13 +1,15 @@
-from woolang.woolang import run
+from woolang.arguments.arguments import WoolangArgumentParser
+import sys as sys
 
-d = open("example.lang").read()
 
-result, error = run('<stdin>', d)
+argument_parser = WoolangArgumentParser(sys.argv)
 
-if error:
-	print(error.as_string())
-elif result:
-	if len(result.elements) == 1:
-		print(repr(result.elements[0]))
-	else:
-		print(repr(result))
+# result, error = run('<stdin>', d)
+
+# if error:
+# 	print(error.as_string())
+# elif result:
+# 	if len(result.elements) == 1:
+# 		print(repr(result.elements[0]))
+# 	else:
+# 		print(repr(result))
