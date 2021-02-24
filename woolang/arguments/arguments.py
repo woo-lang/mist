@@ -1,11 +1,19 @@
 from woolang.project.project import Project
+from woolang.package.manager import PackageManager, error_logger
+from woolang import run_application
+
+
+from clint.textui import colored as Color
 import sys as sys
+import os as os
 
 class WoolangArgumentParser(object):
     def __init__(self, command_line_argument):
         self.arguments = command_line_argument[1:]
 
         self.compiler_version = "1.0.0"
+
+        self.project = None
 
 
 
@@ -25,10 +33,24 @@ class WoolangArgumentParser(object):
                 self.show_help_message()
 
             elif arguments[0] == "init":
-                project = Project()
-            else:
-                print("None")
+                self.project = Project()
+            elif arguments[0] == "install":
+                package = PackageManager(
+                    "."
+                )
 
+            else:
+                run_application(self.read_file_content(
+                    arguments[0]
+                ))
+
+    def read_file_content(self, filename):
+        if os.path.exists(filename) and os.path.isfile(filename):
+            return str(open(filename).read())
+        else:
+            return error_logger(f"Cannot find {filename}")
+
+                
     def woolang_compiler(self):
         console_output_texts = [
             f"Woolang Compiler {self.compiler_version} on {sys.platform}",

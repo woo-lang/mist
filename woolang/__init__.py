@@ -22,3 +22,19 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 """
+from woolang.woolang import run
+import sys as sys
+
+def run_application(content):
+    if content == None:
+        sys.exit()
+    else:
+        result, error = run('<stdin>', content)
+
+        if error:
+            print(error.as_string())
+        elif result:
+            if len(result.elements) == 1:
+                print(repr(result.elements[0]))
+            else:
+                print(repr(result))
