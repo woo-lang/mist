@@ -1,7 +1,8 @@
 from woolang.lang.lexer import *
 from woolang.lang.lexer.position import Position
 from woolang.lang.lexer.token import Token
-
+from woolang.exceptions.exception import *
+from woolang.exceptions import *
 
 class Lexer:
     def __init__(self, fn, text):
