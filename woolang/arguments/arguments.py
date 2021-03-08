@@ -1,4 +1,5 @@
-from woolang.project.project import Project
+# from woolang.project.project import Project
+from woolang_project.project import Project
 from woolang.package.manager import PackageManager, error_logger
 from woolang import run_application
 
