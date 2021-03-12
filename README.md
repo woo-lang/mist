@@ -7,6 +7,7 @@ A simple programming language
 <hr>
 
  - Ruby-like syntax
+ 
     ```ruby
     let d = 554
 
@@ -19,4 +20,12 @@ A simple programming language
     hello()
 
     ```
+    
+  - Functions
+  
+   ```ruby
+   def sat(text)
+    PRINT(text)
+   end
+   ```
 
