@@ -8,16 +8,16 @@ A simple programming language
 
  - Ruby-like syntax
  
-    ```ruby
-    let d = 554
+   ```ruby
+   let d = 554
 
-    if d > 500 THEN PRINT("yo")
+   if d > 500 THEN PRINT("yo")
 
-    def hello()
-        PRINT("LOL")
-    end
+   def hello()
+       PRINT("LOL")
+   end
 
-    hello()
+   hello()
 
     ```
     
