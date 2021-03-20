@@ -1,15 +1,9 @@
-println("hI")
-println("hI")
-println("hI")
-println("hI")
-println("hI")
-println("hI")
-println("hI")
-println("hI")
-println("hI")
-println("hI")
-println("hI")
-println("hI")
-println("hI")
+println(is_string("Hai"))
 
-clear()
+def data()
+    println("LOl")
+end
+
+println(callable(data))
+
+readline()
