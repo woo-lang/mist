@@ -1405,6 +1405,13 @@ class BuiltInFunction(BaseFunction):
 
     execute_run.arg_names = ["fn"]
 
+    def execute_sum(self, exec_ctx):
+        data = exec_ctx.symbol_table.get("value")
+        print(data)
+
+        return RTResult().success(Number.null)
+
+
 
 BuiltInFunction.print = BuiltInFunction("print")
 BuiltInFunction.print_ret = BuiltInFunction("print_ret")
