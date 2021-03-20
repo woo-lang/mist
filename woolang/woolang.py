@@ -1242,7 +1242,13 @@ class BuiltInFunction(BaseFunction):
     execute_print_ret.arg_names = ['value']
 
     def execute_input(self, exec_ctx):
-        text = input()
+        while True:
+            try:
+                text = input()
+                break
+            except KeyboardInterrupt:
+                print("Your keyboard interrupted")
+
         return RTResult().success(String(text))
 
     execute_input.arg_names = []
