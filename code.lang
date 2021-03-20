@@ -1,9 +1,1 @@
-let d = 554
-
-if d > 500 THEN PRINT("yo")
-
-def hello()
-    PRINT("LOL")
-end
-
-hello()
+println("Hoo")

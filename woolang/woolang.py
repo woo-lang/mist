@@ -1260,7 +1260,7 @@ class BuiltInFunction(BaseFunction):
     execute_input_int.arg_names = []
 
     def execute_clear(self, exec_ctx):
-        os.system('cls' if os.name == 'nt' else 'cls')
+        os.system('cls' if os.name == 'nt' else 'clear')
         return RTResult().success(Number.null)
 
     execute_clear.arg_names = []
@@ -1719,7 +1719,7 @@ global_symbol_table.set("NULL", Number.null)
 global_symbol_table.set("FALSE", Number.false)
 global_symbol_table.set("TRUE", Number.true)
 global_symbol_table.set("MATH_PI", Number.math_PI)
-global_symbol_table.set("PRINT", BuiltInFunction.print)
+global_symbol_table.set("println", BuiltInFunction.print)
 global_symbol_table.set("PRINT_RET", BuiltInFunction.print_ret)
 global_symbol_table.set("INPUT", BuiltInFunction.input)
 global_symbol_table.set("INPUT_INT", BuiltInFunction.input_int)
