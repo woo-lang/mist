@@ -11,13 +11,16 @@ A simple programming language
    ```ruby
    let d = 554
 
-   if d > 500 THEN PRINT("yo")
+   if d > 500 THEN println("yo")
 
    def hello()
-       PRINT("LOL")
+       println("LOL")
    end
 
    hello()
+
+   # get input
+   print(is_number(readline()))
 
     ```
     
