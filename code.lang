@@ -1,9 +1,2 @@
-println(is_string("Hai"))
-
-def data()
-    println("LOl")
-end
-
-println(callable(data))
-
-readline()
+print("LOL")
+print("LOL")

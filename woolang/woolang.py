@@ -1235,6 +1235,12 @@ class BuiltInFunction(BaseFunction):
 
     execute_print.arg_names = ['value']
 
+    def execute_print_end(self, exec_ctx):
+        print(str(exec_ctx.symbol_table.get('value')), end='')
+        return RTResult().success(Number.null)
+
+    execute_print_end.arg_names = ['value']
+
     def execute_print_ret(self, exec_ctx):
         return RTResult().success(
             String(str(exec_ctx.symbol_table.get('value'))))
@@ -1414,6 +1420,7 @@ BuiltInFunction.pop = BuiltInFunction("pop")
 BuiltInFunction.extend = BuiltInFunction("extend")
 BuiltInFunction.len = BuiltInFunction("len")
 BuiltInFunction.run = BuiltInFunction("run")
+BuiltInFunction.print_end = BuiltInFunction("print_end")
 
 #######################################
 # CONTEXT
@@ -1740,6 +1747,7 @@ global_symbol_table.set("pop", BuiltInFunction.pop)
 global_symbol_table.set("extend", BuiltInFunction.extend)
 global_symbol_table.set("len", BuiltInFunction.len)
 global_symbol_table.set("RUN", BuiltInFunction.run)
+global_symbol_table.set("print", BuiltInFunction.print_end)
 
 
 def run(fn, text):
