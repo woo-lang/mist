@@ -1407,9 +1407,22 @@ class BuiltInFunction(BaseFunction):
 
     def execute_sum(self, exec_ctx):
         data = exec_ctx.symbol_table.get("value")
-        print(data)
+        if not isinstance(data, List):
+            return RTResult().failure(
+                RTError(
+                    self.pos_start, self.pos_end,
+                    f"Expected a list" +
+                    "", exec_ctx)
+            )
+        try:return  RTResult().success(sum(data.elements))
+        except:
+            return RTResult().failure(
+                RTError(
+                    self.pos_start, self.pos_end,
+                    f"Sum function failed" +
+                    "", exec_ctx))
 
-        return RTResult().success(Number.null)
+    execute_sum.arg_names = ["value"]
 
 
 
@@ -1428,6 +1441,7 @@ BuiltInFunction.extend = BuiltInFunction("extend")
 BuiltInFunction.len = BuiltInFunction("len")
 BuiltInFunction.run = BuiltInFunction("run")
 BuiltInFunction.print_end = BuiltInFunction("print_end")
+BuiltInFunction.sum = BuiltInFunction("sum")
 
 #######################################
 # CONTEXT
@@ -1755,6 +1769,8 @@ global_symbol_table.set("extend", BuiltInFunction.extend)
 global_symbol_table.set("len", BuiltInFunction.len)
 global_symbol_table.set("RUN", BuiltInFunction.run)
 global_symbol_table.set("print", BuiltInFunction.print_end)
+global_symbol_table.set("sum", BuiltInFunction.sum)
+
 
 
 def run(fn, text):

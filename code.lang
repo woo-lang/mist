@@ -1,2 +1,3 @@
-print("LOL")
-print("LOL")
+let d = [4, 76]
+
+print(sum(d))
