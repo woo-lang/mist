@@ -1424,6 +1424,14 @@ class BuiltInFunction(BaseFunction):
 
     execute_sum.arg_names = ["value"]
 
+    def execute_type(self, data_values):
+        data = data_values.symbol_table.get("value")
+
+        print(f"LOL - {data}")
+        return RTResult().success(Number.null)
+
+    execute_type.arg_names = ["value"]
+
 
 
 BuiltInFunction.print = BuiltInFunction("print")
@@ -1442,6 +1450,8 @@ BuiltInFunction.len = BuiltInFunction("len")
 BuiltInFunction.run = BuiltInFunction("run")
 BuiltInFunction.print_end = BuiltInFunction("print_end")
 BuiltInFunction.sum = BuiltInFunction("sum")
+BuiltInFunction.type = BuiltInFunction("type")
+
 
 #######################################
 # CONTEXT
@@ -1770,6 +1780,8 @@ global_symbol_table.set("len", BuiltInFunction.len)
 global_symbol_table.set("RUN", BuiltInFunction.run)
 global_symbol_table.set("print", BuiltInFunction.print_end)
 global_symbol_table.set("sum", BuiltInFunction.sum)
+global_symbol_table.set("type", BuiltInFunction.type)
+
 
 
 
