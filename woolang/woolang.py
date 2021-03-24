@@ -8,6 +8,7 @@ from woolang.lang.lexer.lexer import Lexer
 from woolang.lang.lexer.position import Position
 from woolang.lang.lexer.token import Token
 
+
 from woolang.lang.node import *
 
 
@@ -1195,6 +1196,17 @@ class Function(BaseFunction):
     def __repr__(self):
         return f"<function {self.name}>"
 
+class TypeAnalyser(object):
+    def __init__(self, value):
+        self.anayse_value = value
+
+    @property
+    def value_type(self):
+        return "LOL"
+
+    @staticmethod
+    def get_type(value):
+        return TypeAnalyser(value).value_type
 
 class BuiltInFunction(BaseFunction):
     def __init__(self, name):
@@ -1426,8 +1438,20 @@ class BuiltInFunction(BaseFunction):
 
     def execute_type(self, data_values):
         data = data_values.symbol_table.get("value")
+        type_value = None
 
-        print(f"LOL - {data}")
+        if isinstance(data, String):
+            type_value = "string"
+            if len(str(data)) == 1:
+                type_value = "char"
+        elif isinstance(data, List):type_value = "list"
+        elif isinstance(data, Number):
+            type_value = "int"
+            if str(data).count(".") == 1:
+                type_value = "float"
+
+        type_value = "unknown" if type_value == None else type_value
+        print(type_value)
         return RTResult().success(Number.null)
 
     execute_type.arg_names = ["value"]
