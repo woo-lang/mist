@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 """
-
+from woolang.arrows import string_with_arrows
 
 class Error:
     def __init__(self, pos_start, pos_end, error_name, details):

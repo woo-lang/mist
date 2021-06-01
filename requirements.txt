@@ -1,3 +1,2 @@
 clint
-loldb
 woolang-project-generator

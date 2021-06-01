@@ -12,17 +12,9 @@ from woolang.lang.lexer.token import Token
 from woolang.lang.node import *
 
 
-import string as string
-import os as os
-import math as math
-
-
-
-
-#######################################
-# PARSE RESULT
-#######################################
-
+import string
+import os
+import math
 
 class ParseResult:
     def __init__(self):
@@ -56,11 +48,6 @@ class ParseResult:
         if not self.error or self.last_registered_advance_count == 0:
             self.error = error
         return self
-
-
-#######################################
-# PARSER
-#######################################
 
 
 class Parser:
@@ -749,7 +736,6 @@ class Parser:
         return res.success(
             FuncDefNode(var_name_tok, arg_name_toks, body, False))
 
-    ###################################
 
     def bin_op(self, func_a, ops, func_b=None):
         if func_b == None:
@@ -1786,7 +1772,7 @@ global_symbol_table = SymbolTable()
 global_symbol_table.set("nil", Number.null)
 global_symbol_table.set("false", Number.false)
 global_symbol_table.set("true", Number.true)
-global_symbol_table.set("MATH_PI", Number.math_PI)
+global_symbol_table.set("PI", Number.math_PI)
 global_symbol_table.set("println", BuiltInFunction.print)
 global_symbol_table.set("PRINT_RET", BuiltInFunction.print_ret)
 global_symbol_table.set("readline", BuiltInFunction.input)
