@@ -30,7 +30,7 @@ def run_application(content):
     if content == None:
         sys.exit()
     else:
-        result, error = run('<stdin>', content)
+        result, error = run("<stdin>", content)
 
         if error:
             print(error.as_string())

@@ -16,7 +16,7 @@ def url_is_secure(data):
     return data.startswith("https://")
 
 
-class PackageManager():
+class PackageManager:
     def __init__(self, search_for_packages):
         self.packages = self.get_all_packages(search_for_packages)
 
@@ -27,8 +27,7 @@ class PackageManager():
         Get the list of packages to install as an array
         """
         if package_dir == ".":
-            return self.read_all_packages(
-                os.path.join(os.getcwd(), f"woo.json"))
+            return self.read_all_packages(os.path.join(os.getcwd(), f"woo.json"))
         else:
             return [package_dir]
 
@@ -39,7 +38,7 @@ class PackageManager():
         and return it
         if config file not present , throws out
         an error
-        and returns an empty array of 
+        and returns an empty array of
         packages
         """
         if os.path.exists(filename) and os.path.isfile(filename):
@@ -74,10 +73,10 @@ class PackageManager():
                 try:
                     """
                     => Try reading the raw file
-                    => get the basepath of the url(filename) 
+                    => get the basepath of the url(filename)
                     => removes the (.) in the basepath and created
-                    a folder for putting the file 
-                    => open the file and write the string form 
+                    a folder for putting the file
+                    => open the file and write the string form
                     of the extracted raw data
                     =>else if an exception occurs throw out an error
                     """
@@ -89,8 +88,7 @@ class PackageManager():
                         pass
                     else:
                         os.mkdir(os.path.join(module_path, dir_path))
-                        file_path = os.path.join(module_path, dir_path,
-                                                 project_path)
+                        file_path = os.path.join(module_path, dir_path, project_path)
 
                         with open(file_path, "w") as writer:
                             writer.write(str(data.raw))
@@ -100,5 +98,4 @@ class PackageManager():
                     error_logger("Failed to install")
                 print(f"INSTALLED:{installed_packages}")
             else:
-                error_logger(
-                    "Packages should be hosted on a secure connection")
+                error_logger("Packages should be hosted on a secure connection")

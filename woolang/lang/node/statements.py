@@ -4,13 +4,19 @@ class IfNode:
         self.else_case = else_case
 
         self.pos_start = self.cases[0][0].pos_start
-        self.pos_end = (self.else_case
-                        or self.cases[len(self.cases) - 1])[0].pos_end
+        self.pos_end = (self.else_case or self.cases[len(self.cases) - 1])[0].pos_end
 
 
 class ForNode:
-    def __init__(self, var_name_tok, start_value_node, end_value_node,
-                 step_value_node, body_node, should_return_null):
+    def __init__(
+        self,
+        var_name_tok,
+        start_value_node,
+        end_value_node,
+        step_value_node,
+        body_node,
+        should_return_null,
+    ):
         self.var_name_tok = var_name_tok
         self.start_value_node = start_value_node
         self.end_value_node = end_value_node
@@ -33,8 +39,7 @@ class WhileNode:
 
 
 class FuncDefNode:
-    def __init__(self, var_name_tok, arg_name_toks, body_node,
-                 should_auto_return):
+    def __init__(self, var_name_tok, arg_name_toks, body_node, should_auto_return):
         self.var_name_tok = var_name_tok
         self.arg_name_toks = arg_name_toks
         self.body_node = body_node
@@ -81,4 +86,3 @@ class BreakNode:
     def __init__(self, pos_start, pos_end):
         self.pos_start = pos_start
         self.pos_end = pos_end
-

@@ -6,7 +6,8 @@ class NumberNode:
         self.pos_end = self.tok.pos_end
 
     def __repr__(self):
-        return f'{self.tok}'
+        return f"{self.tok}"
+
 
 class StringNode:
     def __init__(self, tok):
@@ -16,7 +17,7 @@ class StringNode:
         self.pos_end = self.tok.pos_end
 
     def __repr__(self):
-        return f'{self.tok}'
+        return f"{self.tok}"
 
 
 class ListNode:
@@ -54,7 +55,7 @@ class BinOpNode:
         self.pos_end = self.right_node.pos_end
 
     def __repr__(self):
-        return f'({self.left_node}, {self.op_tok}, {self.right_node})'
+        return f"({self.left_node}, {self.op_tok}, {self.right_node})"
 
 
 class UnaryOpNode:
@@ -66,4 +67,4 @@ class UnaryOpNode:
         self.pos_end = node.pos_end
 
     def __repr__(self):
-        return f'({self.op_tok}, {self.node})'
+        return f"({self.op_tok}, {self.node})"
