@@ -1,5 +1,5 @@
 # from woolang.project.project import Project
-from woolang_project.project import Project
+from generate.project import Project, ProjectFiles
 from woolang.package.manager import PackageManager, error_logger
 from woolang import run_application
 
@@ -32,7 +32,11 @@ class WoolangArgumentParser(object):
                 self.show_help_message()
 
             elif arguments[0] == "init":
-                self.project = Project()
+                self.project = Project(".", ProjectFiles(
+                    {"LOl":"lmao"},
+                    ["test"]
+                ))
+                self.project.create()
             elif arguments[0] == "install":
                 package = PackageManager(".")
 
