@@ -1,0 +1,27 @@
+from lang.builtins.values.number import Number
+from lang.builtins.builtins import BuiltInFunction
+from lang.interpreter.table import SymbolTable
+
+global_symbol_table = SymbolTable()
+global_symbol_table.set("nil", Number.null)
+global_symbol_table.set("false", Number.false)
+global_symbol_table.set("true", Number.true)
+global_symbol_table.set("PI", Number.math_PI)
+global_symbol_table.set("println", BuiltInFunction.print)
+global_symbol_table.set("PRINT_RET", BuiltInFunction.print_ret)
+global_symbol_table.set("readline", BuiltInFunction.input)
+global_symbol_table.set("readint", BuiltInFunction.input_int)
+global_symbol_table.set("cls", BuiltInFunction.clear)
+global_symbol_table.set("clear", BuiltInFunction.clear)
+global_symbol_table.set("is_num", BuiltInFunction.is_number)
+global_symbol_table.set("is_string", BuiltInFunction.is_string)
+global_symbol_table.set("is_list", BuiltInFunction.is_list)
+global_symbol_table.set("callable", BuiltInFunction.is_function)
+global_symbol_table.set("append", BuiltInFunction.append)
+global_symbol_table.set("pop", BuiltInFunction.pop)
+global_symbol_table.set("extend", BuiltInFunction.extend)
+global_symbol_table.set("len", BuiltInFunction.len)
+global_symbol_table.set("RUN", BuiltInFunction.run)
+global_symbol_table.set("print", BuiltInFunction.print_end)
+global_symbol_table.set("sum", BuiltInFunction.sum)
+global_symbol_table.set("type", BuiltInFunction.type)
