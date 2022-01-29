@@ -51,9 +51,10 @@ class FuncDefNode:
             self.pos_start = self.arg_name_toks[0].pos_start
         else:
             self.pos_start = self.body_node.pos_start
-
         self.pos_end = self.body_node.pos_end
 
+    def __repr__(self):
+        return f"FuncDefNode(name={self.var_name_tok}, args={self.arg_name_toks}, body={self.body_node})"
 
 class CallNode:
     def __init__(self, node_to_call, arg_nodes):
@@ -61,11 +62,13 @@ class CallNode:
         self.arg_nodes = arg_nodes
 
         self.pos_start = self.node_to_call.pos_start
-
         if len(self.arg_nodes) > 0:
             self.pos_end = self.arg_nodes[len(self.arg_nodes) - 1].pos_end
         else:
             self.pos_end = self.node_to_call.pos_end
+
+    def __repr__(self):
+        return f"CallNode(name={self.node_to_call}, params={self.arg_nodes})"
 
 
 class ReturnNode:

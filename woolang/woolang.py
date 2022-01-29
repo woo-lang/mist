@@ -1,3 +1,4 @@
+
 from woolang.arrows import *
 from woolang.exceptions import Error
 
@@ -28,6 +29,9 @@ class ParseResult:
         self.last_registered_advance_count = 0
         self.advance_count = 0
         self.to_reverse_count = 0
+
+    def __repr__(self):
+        return f"<result({self.node})>"
 
     def register_advancement(self):
         self.last_registered_advance_count = 1
@@ -87,8 +91,6 @@ class Parser:
                 )
             )
         return res
-
-    ###################################
 
     def statements(self):
         res = ParseResult()
@@ -2044,6 +2046,7 @@ def run(fn, text):
     ast = parser.parse()
     if ast.error:
         return None, ast.error
+    print(ast.node)
 
     # Run program
     interpreter = Interpreter()

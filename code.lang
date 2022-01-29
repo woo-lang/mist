@@ -1,4 +1,7 @@
-let d = 8
 
 
-println(d)
+def hello(ee, eoooe, lol)
+  def poop(loollele)
+    println("hmm")
+  end
+end
