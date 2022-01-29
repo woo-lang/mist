@@ -4,4 +4,7 @@ def hello(ee, eoooe, lol)
   def poop(loollele)
     println("hmm")
   end
+  poop(3)
 end
+
+hello(3,9,3)
